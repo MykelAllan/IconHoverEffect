@@ -1,0 +1,171 @@
+:root {
+    --bg: #292929;
+    --pc: #8BD3E6;
+    --sc: #B1A2CA;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--bg);
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+    height: 200px;
+    background: repeating-conic-gradient(from var(--a), var(--pc) 0%, var(--pc) 5%, transparent 5%, transparent 40%, var(--pc) 50%);
+    animation: animate 4s linear infinite;
+    z-index: 1;
+    border-radius: 20px;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+.title-container h1 {
+    z-index: 2;
+}
+
+
+@property --a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@keyframes animate {
+    0% {
+        --a: 0deg;
+    }
+
+    100% {
+        --a: 360deg;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .title-container {
+        width: 90%;
+    }
+}
+
+.title-container::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-conic-gradient(from var(--a), var(--sc) 0%, var(--sc) 5%, transparent 5%, transparent 40%, var(--sc) 50%);
+    animation: animate 4s linear infinite;
+    animation-delay: -1s;
+    border-radius: 20px;
+
+}
+
+.title-container::after {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    background: var(--bg);
+    border-radius: 15px;
+    border: 8px solid #25252b;
+}
+
+ul {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+ul li {
+    position: relative;
+    list-style: none;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    inset: 30px;
+    box-shadow: 0 0 10px var(--clr),
+        0 0 0 20px var(--bg),
+        0 0 0 22px var(--clr);
+    transition: 0.5s;
+}
+
+ul li:hover::before {
+    inset: 15px;
+}
+
+ul li::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--bg);
+    transform: rotate(45deg);
+    transition: 0.5s;
+}
+
+ul li:hover::after {
+    inset: -10px;
+    transform: rotate(0deg);
+}
+
+ul li a {
+    position: relative;
+    text-decoration: none;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li a i {
+    font-size: 2em;
+    transition: 0.5s;
+    color: var(--clr);
+}
+
+ul li:hover a i {
+    color: var(--clr);
+    transform: translateY(-40%);
+}
+
+ul li a span {
+    position: absolute;
+    font-family: consolas;
+    color: var(--clr);
+    opacity: 0;
+    transition: 0.5s;
+    transform: scale(0) translateY(200%);
+}
+
+ul li:hover a span {
+    opacity: 1;
+    transform: scale(1) translateY(100%);
+    transition: 0.5s;
+
+}
+
+ul li:hover a i,
+ul li:hover a span {
+    filter: drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 50px var(--clr)) drop-shadow(0 0 60px var(--clr));
+}
