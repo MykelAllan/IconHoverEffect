@@ -4,7 +4,7 @@
 A simple webpage showcasing icon hover effects created using HTML and CSS. The page includes a title with a dynamic gradient animation and a list of icons, each with a unique hover effect. The hover effects include color changes and shadow effects.
 
 ## Demo
-Check out the live demo: [Icon Hover Effects Demo](https://iconhovereffect-myk.vercel.app/)
+Check out the live demo: [Icon Hover Effects Demo](https://iconhovereffect-mykel.vercel.app/)
 
 ## Getting Started
 1. **Clone the Repository**: `git clone https://github.com/MykelAllan/repository.git`
